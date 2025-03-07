@@ -3,13 +3,12 @@ const calculatebtn = document.querySelector('#Calculate');
 const result = document.querySelector('#result');
 
 calculatebtn.addEventListener('click',function(){
+    // take height value from the html file
     let heightValue = parseInt(document.querySelector('#height').value);
+    // take weight value from the html file
     let weightValue = parseInt(document.querySelector('#weight').value);
-    console.log(heightValue);
-    console.log(weightValue);
 
-    // creating a dynamic element that show the result 
-   
+    // cheak the height & weight value is invaild or not 
     if(heightValue=== ''|| heightValue < 0 ||  isNaN(heightValue))
     {
         result.innerHTML =`please Enter a valid height ${heightValue}`;
@@ -20,7 +19,9 @@ calculatebtn.addEventListener('click',function(){
     }
     else
     {
+        // calculate the bmi value 
        const bmi = (weightValue/((heightValue*heightValue)/10000)).toFixed(2);
+        // show the Result
        result.innerHTML = `<span>Your BMI is  ${bmi}</span>`;
     //    main.appendChild(result)
     
